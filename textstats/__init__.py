@@ -1,9 +1,13 @@
 """Tiny text statistics used to exercise crew end to end."""
+import re
+
+# A word is alphanumeric runs joined by single internal hyphens.
+_WORD = re.compile(r"[^\W_]+(?:-[^\W_]+)*")
 
 
 def word_count(text: str) -> int:
     """Number of words in text."""
-    return len(text.split(" "))
+    return len(_WORD.findall(text))
 
 
 def line_count(text: str) -> int:
