@@ -10,6 +10,12 @@ class TestTextstats(unittest.TestCase):
     def test_line_count(self):
         self.assertEqual(line_count("a\nb"), 2)
 
+    def test_line_count_empty(self):
+        self.assertEqual(line_count(""), 0)
+
+    def test_line_count_trailing_newline(self):
+        self.assertEqual(line_count("a\nb\n"), 2)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -12,7 +12,9 @@ def word_count(text: str) -> int:
 
 def line_count(text: str) -> int:
     """Number of lines in text."""
-    return len(text.split("\n"))
+    if not text:
+        return 0
+    return text.count("\n") + (not text.endswith("\n"))
 
 
 def char_count(text: str, include_spaces: bool = True) -> int:
